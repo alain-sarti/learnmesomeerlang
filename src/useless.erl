@@ -1,9 +1,8 @@
 -module(useless).
--export([start/0, add/2, hello/0, greet_and_add_two/1, greet/2]).
+-export([start/0, add/2, hello/0, greet_and_add_two/1, greet/2, get_person/0]).
 
 start() ->
-  io:format("is 5 old enough: ~s~n", [guards:old_enough(5)]),
-  io:format("is 18 old enough: ~s~n", [guards:old_enough(18)]).
+  io:format("Length = ~b~n", [recursive:tail_len(lists:duplicate(1000000, 100))]).
 
 add(A, B) ->
   A + B.
@@ -21,3 +20,9 @@ greet(female, Name) ->
   io:format("Hello, Mrs. ~s!~n", [Name]);
 greet(_, Name) ->
   io:format("Hello, ~s!~n", [Name]).
+
+get_person() ->
+  {person, {name, <<"Fred T-H">>},
+    {qualities, ["handsome", "smart", "honest", "objective"]},
+    {faults, ["liar"]},
+    {skills, ["programming", "bass guitar", "underwater breakdancing"]}}.
