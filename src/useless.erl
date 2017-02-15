@@ -2,7 +2,8 @@
 -export([start/0, add/2, hello/0, greet_and_add_two/1, greet/2, get_person/0]).
 
 start() ->
-  io:format("Length = ~b~n", [recursive:tail_len(lists:duplicate(1000000, 100))]).
+  Numbers = lists:seq(1,10),
+  io:format("modified list = ~w~n", [boggle:filter(fun(X) -> X rem 2 == 0 end, Numbers)]).
 
 add(A, B) ->
   A + B.

@@ -1,5 +1,5 @@
 -module(recursive).
--export([fac/1, len/1, tail_len/1, tail_fac/1]).
+-export([fac/1, len/1, tail_len/1, tail_fac/1, map/2, incr/1, decr/1]).
 
 fac(N) when N == 0 ->
   1;
@@ -27,3 +27,13 @@ tail_fac(0,Acc) ->
 tail_fac(N,Acc) when N > 0 ->
   tail_fac(N-1,N*Acc).
 
+map(_,[]) ->
+  [];
+map(F,[H|T]) ->
+  [F(H), map(F,T)].
+
+decr(X) ->
+  X - 1.
+
+incr(X) ->
+  X + 1.
