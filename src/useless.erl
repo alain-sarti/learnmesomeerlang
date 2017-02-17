@@ -2,8 +2,9 @@
 -export([start/0, add/2, hello/0, greet_and_add_two/1, greet/2, get_person/0]).
 
 start() ->
-  Numbers = lists:seq(1,10),
-  io:format("modified list = ~w~n", [boggle:filter(fun(X) -> X rem 2 == 0 end, Numbers)]).
+  io:format("errors: ~s~n", [exceptions:black_knight(fun() -> exceptions:sword(4) end)]),
+  io:format("~w~n", [exceptions:try_catch()]),
+  io:format("~w~n", [exceptions:division(6/0)]).
 
 add(A, B) ->
   A + B.
